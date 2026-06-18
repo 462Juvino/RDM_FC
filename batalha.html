@@ -112,7 +112,7 @@
 
     <script>
         // 🛡️ TRAVA RDM STUDIO
-        window.rdmUser = localStorage.getItem('rdm_user');
+        window.rdmUser = localStorage.getItem('rdm_user_tiktok') || localStorage.getItem('rdm_user');
         window.rdmPerfil = localStorage.getItem('rdm_perfil');
 
         if (!window.rdmUser || !window.rdmPerfil) {

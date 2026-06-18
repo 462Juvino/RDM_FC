@@ -141,10 +141,28 @@ function conectarNuvemBatalha() {
     let targetUser = window.rdmUser;
     if (!targetUser) return;
     if (conexaoNuvemEstabelecidaB && lastTiktokUserB === targetUser) return;
+
+    // ⚠️ A CORREÇÃO DE LOOP: Impede que o jogo cancele a conexão enquanto a torre acorda!
+    if (wsNuvemB && wsNuvemB.readyState === WebSocket.CONNECTING) return;
+
     if (wsNuvemB) wsNuvemB.close();
+
     lastTiktokUserB = targetUser;
+    console.log(`☁️ Tentando Nuvem Batalha para: @${targetUser}...`);
+
     wsNuvemB = new WebSocket("wss://torre-de-controle-rdm.onrender.com:443/");
-    wsNuvemB.onopen = () => { conexaoNuvemEstabelecidaB = true; };
+
+    wsNuvemB.onopen = () => {
+        conexaoNuvemEstabelecidaB = true;
+        console.log(`✅ NUVEM BATALHA CONECTADA! Escutando: @${targetUser}`);
+
+        // 🪄 A LINHA MÁGICA: Avisa a Torre qual Live espelhar agora!
+        wsNuvemB.send(JSON.stringify({ action: "connect", tiktok_user: targetUser }));
+
+        // ⚠️ A PROVA VISUAL NO MODO BATALHA (Usa o Toast de Narração)
+        showToast(`☁️ NUVEM RDM LIGADA! (@${targetUser})`);
+    };
+
     wsNuvemB.onmessage = (event) => { try { processarEventoDaAPIBatalha(JSON.parse(event.data)); } catch(e) {} };
     wsNuvemB.onclose = () => { conexaoNuvemEstabelecidaB = false; wsNuvemB = null; };
 }
@@ -152,7 +170,10 @@ function conectarNuvemBatalha() {
 function verificarEConectarBatalha() {
     if (!wsTikfinityB || wsTikfinityB.readyState === WebSocket.CLOSED) {
         wsTikfinityB = new WebSocket("ws://127.0.0.1:21213/");
-        wsTikfinityB.onopen = () => { if (wsNuvemB) { wsNuvemB.close(); wsNuvemB = null; conexaoNuvemEstabelecidaB = false; } };
+        wsTikfinityB.onopen = () => {
+            console.log("✅ TikFinity Local Conectado!");
+            if (wsNuvemB) { wsNuvemB.close(); wsNuvemB = null; conexaoNuvemEstabelecidaB = false; }
+        };
         wsTikfinityB.onmessage = (event) => { try { processarEventoDaAPIBatalha(JSON.parse(event.data)); } catch(e) {} };
         wsTikfinityB.onerror = () => { conectarNuvemBatalha(); };
         wsTikfinityB.onclose = () => { wsTikfinityB = null; };

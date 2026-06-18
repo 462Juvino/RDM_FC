@@ -312,10 +312,30 @@ function conectarNuvem() {
     let targetUser = window.rdmUser;
     if (!targetUser) return;
     if (conexaoNuvemEstabelecida && lastTiktokUser === targetUser) return;
+
+    // ⚠️ A CORREÇÃO DE LOOP: Impede que o jogo cancele a conexão enquanto a torre acorda!
+    if (wsNuvem && wsNuvem.readyState === WebSocket.CONNECTING) return;
+
     if (wsNuvem) wsNuvem.close();
+
     lastTiktokUser = targetUser;
+    console.log(`☁️ Tentando Nuvem para: @${targetUser}... (Aguardando resposta)`);
+
     wsNuvem = new WebSocket("wss://torre-de-controle-rdm.onrender.com:443/");
-    wsNuvem.onopen = () => { conexaoNuvemEstabelecida = true; };
+
+    wsNuvem.onopen = () => {
+        conexaoNuvemEstabelecida = true;
+        console.log(`✅ NUVEM CONECTADA! Escutando: @${targetUser}`);
+
+        // 🪄 A LINHA MÁGICA: Avisa a Torre qual Live espelhar agora!
+        wsNuvem.send(JSON.stringify({ action: "connect", tiktok_user: targetUser }));
+
+        // ⚠️ A PROVA VISUAL (Usa a barra de narração)
+        narrate(`☁️ NUVEM RDM LIGADA! (@${targetUser})`);
+        document.querySelector('.narration-bar').style.border = "2px solid #2ecc71";
+        setTimeout(() => { document.querySelector('.narration-bar').style.border = "2px solid #34495e"; }, 4000);
+    };
+
     wsNuvem.onmessage = (event) => { try { processarEventoDaAPI(JSON.parse(event.data)); } catch(e) {} };
     wsNuvem.onclose = () => { conexaoNuvemEstabelecida = false; wsNuvem = null; };
 }
@@ -323,7 +343,10 @@ function conectarNuvem() {
 function verificarEConectar() {
     if (!wsTikfinity || wsTikfinity.readyState === WebSocket.CLOSED) {
         wsTikfinity = new WebSocket("ws://127.0.0.1:21213/");
-        wsTikfinity.onopen = () => { if (wsNuvem) { wsNuvem.close(); wsNuvem = null; conexaoNuvemEstabelecida = false; } };
+        wsTikfinity.onopen = () => {
+            console.log("✅ TikFinity Local Conectado!");
+            if (wsNuvem) { wsNuvem.close(); wsNuvem = null; conexaoNuvemEstabelecida = false; }
+        };
         wsTikfinity.onmessage = (event) => { try { processarEventoDaAPI(JSON.parse(event.data)); } catch(e) {} };
         wsTikfinity.onerror = () => { conectarNuvem(); };
         wsTikfinity.onclose = () => { wsTikfinity = null; };
