@@ -1,0 +1,517 @@
+{
+  "match": {
+    "home": "Time A",
+    "away": "Time B",
+    "venue": "Estádio Municipal",
+    "competition": "Amistoso Rádio FC",
+    "date": "04/21/2026",
+    "duration": "90+",
+    "commentator": "Narrador Rádio"
+  },
+  "events": [
+    {
+      "minute": 0,
+      "type": "kickoff",
+      "team": "Time A",
+      "narration": "E começa! É bola rolando aqui no Estádio Municipal, Time A parte para cima desde o primeiro segundo!",
+      "emotion": "entusiasmo"
+    },
+    {
+      "minute": 2,
+      "type": "attack",
+      "team": "Time A",
+      "narration": "Time A já pressiona, triangulação rápida pela direita, cruzamento que sai fechado — o goleiro sai e encaixa! Que começo quente!",
+      "emotion": "excitação"
+    },
+    {
+      "minute": 5,
+      "type": "foul",
+      "team": "Time B",
+      "narration": "Falta dura no meio de campo, jogador do Time B derruba o meia do Time A. O árbitro para o jogo — cartão amarelo a caminho, muita reclamação da torcida!",
+      "emotion": "tensão"
+    },
+    {
+      "minute": 7,
+      "type": "free_kick",
+      "team": "Time A",
+      "narration": "Bola parada para o Time A, perigo na área! O cruzamento, cabeceio desviado e defesa na pequena área — que sufoco para o Time B!",
+      "emotion": "ansiedade"
+    },
+    {
+      "minute": 10,
+      "type": "counter_attack",
+      "team": "Time B",
+      "narration": "Rápida saída do Time B, contra-ataque em velocidade, dois contra um! O atacante invade a área, chuta cruzado e... por pouco ao lado! Respira o Time A.",
+      "emotion": "adrenalina"
+    },
+    {
+      "minute": 12,
+      "type": "corner",
+      "team": "Time B",
+      "narration": "Escanteio para o Time B agora. Curto, aberto para a entrada da área, bateu em cima da defesa, sobra e a zaga afasta de cabeça. Quase o empate!",
+      "emotion": "expectativa"
+    },
+    {
+      "minute": 15,
+      "type": "injury",
+      "team": "Time A",
+      "narration": "Parou o jogo: jogador do Time A no gramado, parece uma torção. A ambulância do clube ao lado, o clima fica pesado — vai ter substituição.",
+      "emotion": "preocupação"
+    },
+    {
+      "minute": 17,
+      "type": "substitution",
+      "team": "Time A",
+      "narration": "Substituição no Time A — entra o camisa 20; aplausos e cânticos da torcida. Jogo reiniciado com bola ao Time B.",
+      "emotion": "alívio"
+    },
+    {
+      "minute": 20,
+      "type": "throw_in",
+      "team": "Time B",
+      "narration": "Lateral para o Time B na entrada da área adversária, cobrança rápida, tabelinha e escanteio conquistado. O ataque não para!",
+      "emotion": "suspense"
+    },
+    {
+      "minute": 21,
+      "type": "corner",
+      "team": "Time B",
+      "narration": "Escanteio fechadinho, confusão na área, o zagueiro tenta cortar e quase marca contra! Defesa salva em cima da linha. É jogo de altos e baixos!",
+      "emotion": "drama"
+    },
+    {
+      "minute": 25,
+      "type": "goal",
+      "team": "Time A",
+      "narration": "GOL! GOL DO TIME A! Que jogada cristalina, desarme no meio, lançamento longo, o atacante domina no peito, gira e finaliza no canto — estádio vai à loucura!",
+      "emotion": "euforia"
+    },
+    {
+      "minute": 28,
+      "type": "foul",
+      "team": "Time A",
+      "narration": "Falta perto do meio-campo, reclamação do Time B por marcação tardia. Cartão amarelo para o jogador do Time A que entrou por trás.",
+      "emotion": "irritação"
+    },
+    {
+      "minute": 31,
+      "type": "long_shot",
+      "team": "Time B",
+      "narration": "Resposta do Time B com um chute de fora da área! A bola passou raspando o ângulo — o goleiro só olhou. Que susto para a defesa do Time A!",
+      "emotion": "surpresa"
+    },
+    {
+      "minute": 34,
+      "type": "offside",
+      "team": "Time B",
+      "narration": "A jogada mais perigosa do Time B anula por impedimento! O bandeirinha levanta a bandeira e o público protesta, mas a regra é clara.",
+      "emotion": "frustração"
+    },
+    {
+      "minute": 38,
+      "type": "penalty",
+      "team": "Time B",
+      "narration": "PÊNALTI PARA O TIME B! Entrada na área, o árbitro não teve dúvidas: mão na bola! Silêncio absoluto no estádio — cobrança agora.",
+      "emotion": "tensão máxima"
+    },
+    {
+      "minute": 39,
+      "type": "penalty_goal",
+      "team": "Time B",
+      "narration": "GOL! Cobra o camisa 9 do Time B e converte! Redes balançam. Empate no placar, que reviravolta! O goleiro até pulou, mas a batida foi precisa.",
+      "emotion": "excitação"
+    },
+    {
+      "minute": 42,
+      "type": "foul",
+      "team": "Time A",
+      "narration": "Falta ríspida no meio-campo do Time A, nova advertência do árbitro. O clima esquenta, jogadores trocam empurrões e o radialista acompanha tudo ao vivo!",
+      "emotion": "acalorado"
+    },
+    {
+      "minute": 45,
+      "type": "halftime_whistle",
+      "team": null,
+      "narration": "Apita o árbitro! Intervalo aqui no Municipal, 45 minutos de puro espetáculo: Time A 1, Time B 1. Volta já já com mais emoção.",
+      "emotion": "pausa"
+    },
+    {
+      "minute": 46,
+      "type": "kickoff",
+      "team": "Time B",
+      "narration": "Recomeça a segunda etapa! Time B dá o pontapé inicial, e a torcida faz coro. Quem vai dar o primeiro passo na etapa final?",
+      "emotion": "ansiedade"
+    },
+    {
+      "minute": 50,
+      "type": "attack",
+      "team": "Time A",
+      "narration": "Time A parte para o ataque: troca de passes curtos, infiltração pela esquerda e chute prensado! Escanteio para o Time A.",
+      "emotion": "esperança"
+    },
+    {
+      "minute": 51,
+      "type": "corner",
+      "team": "Time A",
+      "narration": "Escanteio ensaiado, cabeçada perigosa e defesa do goleiro no reflexo. Ufa! Defesa salva mais uma vez.",
+      "emotion": "alívio"
+    },
+    {
+      "minute": 55,
+      "type": "counter_attack",
+      "team": "Time B",
+      "narration": "Contra-relâmpago do Time B! Bola em velocidade, o atacante dribla o marcador e cruza rasteiro — o zagueiro tira em cima da linha! Quase gol olímpico!",
+      "emotion": "suspense"
+    },
+    {
+      "minute": 58,
+      "type": "yellow_card",
+      "team": "Time B",
+      "narration": "Cartão amarelo para o volante do Time B por entrada fora de tempo. Era o último homem, o árbitro marcou para proteger a integridade.",
+      "emotion": "gravidade"
+    },
+    {
+      "minute": 62,
+      "type": "substitution",
+      "team": "Time B",
+      "narration": "Mudança no Time B: entra o atacante veloz buscando romper a defesa. Técnica tática mudando, promete pegar a zaga do Time A desprevenida.",
+      "emotion": "expectativa"
+    },
+    {
+      "minute": 65,
+      "type": "goal",
+      "team": "Time B",
+      "narration": "GOL DO TIME B! Logo após a substituição, lançamento perfeito, domínio e finalização no canto — virada consumada! Explode o estádio com os visitantes!",
+      "emotion": "euforia"
+    },
+    {
+      "minute": 68,
+      "type": "foul",
+      "team": "Time A",
+      "narration": "Cartão amarelo para o defensor do Time A por puxão na linha lateral — reclamação generalizada, mas a falta era clara.",
+      "emotion": "irritação"
+    },
+    {
+      "minute": 71,
+      "type": "injury",
+      "team": "Time B",
+      "narration": "Parada no jogo: jogador do Time B sente cãibra e pede atendimento. Respirações contidas, a substituição pode ser necessária.",
+      "emotion": "preocupação"
+    },
+    {
+      "minute": 73,
+      "type": "substitution",
+      "team": "Time B",
+      "narration": "Tempo esgotado para o titular lesionado — entra o volante mais experiente para segurar o resultado. Estratégia defensiva agora.",
+      "emotion": "decisão"
+    },
+    {
+      "minute": 76,
+      "type": "attack",
+      "team": "Time A",
+      "narration": "Time A não se entrega: pressão no último terço, tabelas rápidas e chute cruzado que o goleiro espalma. O relógio aperta!",
+      "emotion": "urgência"
+    },
+    {
+      "minute": 78,
+      "type": "corner",
+      "team": "Time A",
+      "narration": "Mais um escanteio para o Time A — torcida levanta! Na cobrança, confusão na área e penalidade pedida, mas o árbitro manda seguir.",
+      "emotion": "frustração"
+    },
+    {
+      "minute": 81,
+      "type": "red_card",
+      "team": "Time A",
+      "narration": "Vermelho! Entrada violenta e expulsão no Time A. Jogo vira de cabeça para baixo, agora com um a menos, que momento dramático!",
+      "emotion": "choque"
+    },
+    {
+      "minute": 85,
+      "type": "free_kick",
+      "team": "Time B",
+      "narration": "Bola parada para o Time B na entrada da área — cobraram direto! A barreira desviou e a bola passou tirando tinta da trave. Quase o golpe final!",
+      "emotion": "tensão"
+    },
+    {
+      "minute": 88,
+      "type": "attack",
+      "team": "Time A",
+      "narration": "Última cartada do Time A com muita garra: avanço desesperado, cruzamento na área e cabeceio perigoso que o goleiro espalma para escanteio!",
+      "emotion": "paixão"
+    },
+    {
+      "minute": 89,
+      "type": "corner",
+      "team": "Time A",
+      "narration": "Escanteio nos acréscimos! Time A tenta o tudo ou nada, a bola sobe, sobe, e... a zaga afasta. Segundos finais alucinantes!",
+      "emotion": "clímax"
+    },
+    {
+      "minute": 90,
+      "type": "fulltime_whistle",
+      "team": null,
+      "narration": "Final de partida! Apita o árbitro: Time B 2, Time A 1. Vitória suada dos visitantes em um jogo cheio de emoções, faltas, expulsão e lances brilhantes.",
+      "emotion": "conclusão"
+    },
+    {
+      "minute": 90,
+      "type": "post_match",
+      "team": null,
+      "narration": "A torcida já canta, jogadores se cumprimentam, o radialista faz o fechamento: que espetáculo do futebol, com drama, reviravolta e emoção até o último segundo!",
+      "emotion": "saudação"
+    }
+  ]
+}
+
+{
+  "match": {
+    "home": "Time A",
+    "away": "Time B",
+    "venue": "Estádio Central",
+    "competition": "Copa Rádio Local",
+    "date": "04/21/2026",
+    "duration": "90+",
+    "commentator": "Locutor Central"
+  },
+  "events": [
+    {
+      "minute": 0,
+      "type": "kickoff",
+      "team": "Time B",
+      "narration": "Rola a bola no Estádio Central! Time B começa com a posse e busca impor ritmo desde o apito inicial.",
+      "emotion": "expectativa"
+    },
+    {
+      "minute": 3,
+      "type": "dangerous_play",
+      "team": "Time A",
+      "narration": "Jogada perigosa do Time A: troca de passes veloz no meio, infiltração pela direita e um susto com chute que carimba o poste!",
+      "emotion": "susto"
+    },
+    {
+      "minute": 6,
+      "type": "foul",
+      "team": "Time B",
+      "narration": "Falta estratégica do Time B para cortar o avanço — o árbitro marca e a torcida vai à loucura com as vaias.",
+      "emotion": "irritação"
+    },
+    {
+      "minute": 8,
+      "type": "free_kick",
+      "team": "Time A",
+      "narration": "Bola parada para o Time A, batida colocada, o goleiro se estica e faz grande defesa! Que reflexo sensacional!",
+      "emotion": "admiração"
+    },
+    {
+      "minute": 12,
+      "type": "own_goal",
+      "team": "Time B",
+      "narration": "INFELIZ! Gol contra do Time B após tentativa de corte dentro da área — a bola bate no zagueiro e entra. Virada inesperada já nos primeiros minutos!",
+      "emotion": "chocante"
+    },
+    {
+      "minute": 15,
+      "type": "injury",
+      "team": "Time B",
+      "narration": "Parada no jogo para atendimento: o lateral do Time B sentiu o tornozelo. O fisioterapeuta corre para o gramado enquanto o jogo espera.",
+      "emotion": "preocupação"
+    },
+    {
+      "minute": 18,
+      "type": "substitution",
+      "team": "Time B",
+      "narration": "Primeira alteração do Time B: entra o substituto pelo lateral lesionado. Vai ter adaptação na marcação pelas laterais.",
+      "emotion": "ajuste"
+    },
+    {
+      "minute": 22,
+      "type": "throw_in",
+      "team": "Time A",
+      "narration": "Lateral para o Time A perto da área adversária, cobrança rápida e finalização bloqueada — muita pressão na defesa do Time B.",
+      "emotion": "intensidade"
+    },
+    {
+      "minute": 25,
+      "type": "penalty",
+      "team": "Time A",
+      "narration": "PÊNALTI PARA O TIME A! Contato na área, o árbitro faz o sinal — torcida explode e o jogador já prepara a cobrança.",
+      "emotion": "tensão"
+    },
+    {
+      "minute": 26,
+      "type": "penalty_miss",
+      "team": "Time A",
+      "narration": "PERDEU! Cobrança para fora! Inacreditável desperdício do Time A, o goleiro comemorando e a torcida incrédula.",
+      "emotion": "desespero"
+    },
+    {
+      "minute": 30,
+      "type": "yellow_card",
+      "team": "Time A",
+      "narration": "Amarelo para o meio-campista do Time A por reclamação acalorada com o árbitro — tensão crescendo em campo.",
+      "emotion": "confronto"
+    },
+    {
+      "minute": 33,
+      "type": "long_pass",
+      "team": "Time B",
+      "narration": "Lançamento longo do Time B, defesa do Time A com saída em falso e sobra para o atacante que arremata por cima. Quase deu certo!",
+      "emotion": "expectativa"
+    },
+    {
+      "minute": 36,
+      "type": "corner",
+      "team": "Time B",
+      "narration": "Escanteio perigoso para o Time B, cobrança com curva, choque entre jogadores e o árbitro pede calma. Jogo físico!",
+      "emotion": "tensão"
+    },
+    {
+      "minute": 40,
+      "type": "goal",
+      "team": "Time B",
+      "narration": "GOL DO TIME B! Na sequência do escanteio, o zagueiro cabeceia firme e empata o jogo — festa para os visitantes!",
+      "emotion": "euforia"
+    },
+    {
+      "minute": 44,
+      "type": "substitution",
+      "team": "Time A",
+      "narration": "Mudança tática no Time A antes do intervalo: entra um meia criativo para tentar quebrar a linha adversária.",
+      "emotion": "esperança"
+    },
+    {
+      "minute": 45,
+      "type": "halftime_whistle",
+      "team": null,
+      "narration": "Intervalo! Time A 1, Time B 1. Equilíbrio no placar, muitas alternâncias e promessa de mais emoções na etapa final.",
+      "emotion": "pausa"
+    },
+    {
+      "minute": 46,
+      "type": "kickoff",
+      "team": "Time A",
+      "narration": "Recomeça a partida! Time A dá o pontapé e busca recuperar o domínio do jogo com novos ajustes.",
+      "emotion": "determinação"
+    },
+    {
+      "minute": 49,
+      "type": "attack",
+      "team": "Time A",
+      "narration": "Jogada trabalhada do Time A, has tabelinhas e um chute colocado que obrigou o goleiro a espalmar para escanteio.",
+      "emotion": "agitação"
+    },
+    {
+      "minute": 50,
+      "type": "corner",
+      "team": "Time A",
+      "narration": "Escanteio curtinho, deixa para trás e finalização forte — defesa do Time B com muita autoridade. Está pegando fogo!",
+      "emotion": "adrenalina"
+    },
+    {
+      "minute": 55,
+      "type": "counter_attack",
+      "team": "Time B",
+      "narration": "Contra-ataque mortal do Time B: velocidade nas pontas, cruzamento fechado e chute de primeira no contrapé do goleiro. QUE GOLAÇO!",
+      "emotion": "triunfo"
+    },
+    {
+      "minute": 57,
+      "type": "goal",
+      "team": "Time B",
+      "narration": "GOL DO TIME B! Virada consolidada com jogada de rara beleza — torcida visitante enlouquece, enquanto a casa tenta entender.",
+      "emotion": "exaltação"
+    },
+    {
+      "minute": 60,
+      "type": "foul",
+      "team": "Time B",
+      "narration": "Falha de concentração e falta tática do Time B para segurar a vantagem — o árbitro marca e a bola volta ao jogo.",
+      "emotion": "conteúdo"
+    },
+    {
+      "minute": 64,
+      "type": "yellow_card",
+      "team": "Time B",
+      "narration": "Amarelo para o lateral do Time B por entrada por trás. Jogo esquentando e o árbitro mostra cartão para controlar.",
+      "emotion": "gravidade"
+    },
+    {
+      "minute": 68,
+      "type": "substitution",
+      "team": "Time A",
+      "narration": "Dupla alteração no Time A: entram dois atacantes para tentar reverter o placar. Agora é tudo ou nada!",
+      "emotion": "urgência"
+    },
+    {
+      "minute": 71,
+      "type": "play_disrupted",
+      "team": null,
+      "narration": "O público reclama de uma marcação controversa e o jogo é interrompido por instantes — o clima é de contestação.",
+      "emotion": "controvérsia"
+    },
+    {
+      "minute": 74,
+      "type": "penalty",
+      "team": "Time B",
+      "narration": "PÊNALTI PARA O TIME B! Lance polêmico na área, o juiz aponta para a marca dos 11 metros. Momento decisivo!",
+      "emotion": "tensão"
+    },
+    {
+      "minute": 75,
+      "type": "penalty_saved",
+      "team": "Time A",
+      "narration": "DEFESA DO GOLEIRO! Cobrança bem batida, mas o arqueiro do Time A voa e defende — estádio inteiro reconhece a grande atuação!",
+      "emotion": "heroísmo"
+    },
+    {
+      "minute": 78,
+      "type": "counter_attack",
+      "team": "Time A",
+      "narration": "Rápida resposta após a defesa do pênalti, contra perigoso com finalização bloqueada pela zaga do Time B. Que adrenalina!",
+      "emotion": "tensão"
+    },
+    {
+      "minute": 82,
+      "type": "red_card",
+      "team": "Time B",
+      "narration": "Expulsão no Time B! Jogada violenta e o árbitro não hesita: vermelho direto. Agora é vantagem numérica para os donos da casa.",
+      "emotion": "reviravolta"
+    },
+    {
+      "minute": 84,
+      "type": "free_kick",
+      "team": "Time A",
+      "narration": "Falta perigosa para o Time A nas proximidades da área — cobrança ensaiada, desviou na barreira e passou por pouco!",
+      "emotion": "ansiedade"
+    },
+    {
+      "minute": 87,
+      "type": "attack",
+      "team": "Time A",
+      "narration": "Pressão total do Time A: cruzamentos, tabelas e tentativas incessantes. O público empurra para buscar o empate.",
+      "emotion": "paixão"
+    },
+    {
+      "minute": 89,
+      "type": "goal",
+      "team": "Time A",
+      "narration": "GOL DO TIME A! Nos acréscimos, chute colocado após rebote na área — empate dramático que faz o estádio explodir em alegria!",
+      "emotion": "extase"
+    },
+    {
+      "minute": 90,
+      "type": "fulltime_whistle",
+      "team": null,
+      "narration": "Final de jogo! Time A 2, Time B 2. Foi um espetáculo com drama, expulsão, pênalti perdido e viradas — que transmisssão para a história!",
+      "emotion": "conclusão"
+    },
+    {
+      "minute": 90,
+      "type": "post_match",
+      "team": null,
+      "narration": "Jogadores se cumprimentam e a torcida canta alto. O locutor fecha a transmissão exaltando a entrega das equipes e os lances inesquecíveis.",
+      "emotion": "saudação"
+    }
+  ]
+}

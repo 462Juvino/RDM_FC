@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Batalha Brasileirão 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; background: #111; overflow: hidden; font-family: 'Oswald', sans-serif; }
+
+        /* Estádio de fundo 100% visível, com a película leve */
+        #stadium-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-size: cover; background-position: center; z-index: -1; opacity: 1.0; transition: background-image 1s ease-in-out; }
+        #batalha-wrapper { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; background: rgba(10, 15, 25, 0.65); padding-top: 15px;}
+
+        #batalha-title { font-size: 3rem; color: #f1c40f; margin-bottom: 15px; text-shadow: 0 0 15px rgba(241, 196, 15, 0.8); text-transform: uppercase; letter-spacing: 2px; }
+
+        #batalha-grid { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; max-height: 85vh; overflow-y: auto; padding-bottom: 20px; }
+
+        /* Estilo base dos Cards */
+        .batalha-card { display: flex; align-items: center; justify-content: space-between; background: rgba(0,0,0,0.8); border: 2px solid #34495e; border-radius: 10px; transition: all 0.5s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .batalha-card img { object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5)); transition: transform 0.2s;}
+        .batalha-card h2 { color: #fff; flex: 1; text-align: left; margin-left: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.1; display: flex; flex-direction: column; margin-bottom: 0;}
+        .batalha-score { font-family: 'Montserrat', sans-serif; color: #2ecc71; font-weight: 900; line-height: 1; text-align: right; }
+        .rank-pos { font-weight: bold; width: 50px; text-align: center; }
+
+        /* TAMANHOS DO RANKING */
+        .rank-1 { width: 80%; border-color: #f1c40f; background: linear-gradient(90deg, rgba(241,196,15,0.2), rgba(0,0,0,0.9)); box-shadow: 0 0 20px rgba(241, 196, 15, 0.6); z-index: 10; padding: 10px 25px;}
+        .rank-1 .rank-pos { color: #f1c40f; font-size: 2.5rem; }
+        .rank-1 img { width: 65px; height: 65px; }
+        .rank-1 h2 { font-size: 2.2rem; color: #f1c40f; }
+        .rank-1 .batalha-score { font-size: 3.5rem; }
+
+        .rank-2 { width: 75%; border-color: #bdc3c7; background: linear-gradient(90deg, rgba(189,195,199,0.2), rgba(0,0,0,0.9)); padding: 8px 20px;}
+        .rank-2 .rank-pos { color: #bdc3c7; font-size: 2rem; }
+        .rank-2 img { width: 55px; height: 55px; }
+        .rank-2 h2 { font-size: 1.8rem; }
+        .rank-2 .batalha-score { font-size: 3rem; }
+
+        .rank-3 { width: 70%; border-color: #cd7f32; background: linear-gradient(90deg, rgba(205,127,50,0.2), rgba(0,0,0,0.9)); padding: 6px 18px;}
+        .rank-3 .rank-pos { color: #cd7f32; font-size: 1.8rem; }
+        .rank-3 img { width: 45px; height: 45px; }
+        .rank-3 h2 { font-size: 1.5rem; }
+        .rank-3 .batalha-score { font-size: 2.5rem; }
+
+        .rank-rest { width: 65%; border-color: #34495e; background: rgba(0,0,0,0.8); padding: 5px 15px;}
+        .rank-rest .rank-pos { color: #7f8c8d; font-size: 1.4rem; }
+        .rank-rest img { width: 35px; height: 35px; }
+        .rank-rest h2 { font-size: 1.2rem; }
+        .rank-rest .batalha-score { font-size: 2rem; }
+
+        .presents-hint { font-size: 0.8rem; color: #bdc3c7; font-weight: normal; margin-top: 2px;}
+
+        /* ANIMAÇÃO DE GOL ISOLADA */
+        @keyframes batalhaGoalFlash { 0% { background: rgba(46, 204, 113, 0.8); transform: scale(1.02); } 100% { background: rgba(0,0,0,0.8); transform: scale(1); } }
+        .batalha-anim-goal { animation: batalhaGoalFlash 0.8s ease-out !important; border-color: #2ecc71 !important; }
+
+        #audio-unlock-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95); z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer; text-align: center; }
+        .unlock-content h1 { color: #f1c40f; font-size: 5rem; margin-bottom: 10px;}
+        .unlock-content p { color: #fff; font-size: 1.5rem;}
+
+        #narrative-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); border: 2px solid #f1c40f; padding: 10px 30px; border-radius: 30px; color: #fff; font-size: 1.5rem; z-index: 2000; opacity: 0; transition: opacity 0.5s; pointer-events: none;}
+
+        /* TELA DE CAMPEÃO */
+        #tournament-champion-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95); z-index: 3000; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .tc-title { color: #f1c40f; font-size: 5rem; text-shadow: 0 0 20px #f1c40f; margin-bottom: 20px; }
+        .tc-crest { width: 350px; height: 350px; object-fit: contain; filter: drop-shadow(0 0 50px rgba(241, 196, 15, 1)); }
+        .tc-name { color: #fff; font-size: 6rem; text-transform: uppercase; margin: 20px 0; text-shadow: 0 5px 15px rgba(0,0,0,1); }
+        .confetti { position: absolute; top: -20px; width: 10px; height: 20px; z-index: 9999; pointer-events: none; animation: fall linear forwards; }
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+    </style>
+</head>
+<body>
+    <div id="stadium-bg"></div>
+
+    <div id="audio-unlock-overlay" onclick="unlockAudio()">
+        <div class="unlock-content">
+            <h1 id="unlock-h1">CLIQUE AQUI</h1>
+            <p id="unlock-p">Para libertar o áudio da Batalha!</p>
+        </div>
+    </div>
+
+    <div id="tournament-champion-overlay" style="display: none;">
+        <h1 class="tc-title">🏆 GRANDE CAMPEÃO 🏆</h1>
+        <img id="tc-crest" class="tc-crest" src="">
+        <h2 id="tc-name" class="tc-name">TIME</h2>
+    </div>
+
+    <div id="batalha-wrapper">
+        <h1 id="batalha-title">🏆 BRASILEIRÃO 2026 🏆</h1>
+        <div id="batalha-grid"></div>
+    </div>
+
+    <div id="narrative-toast">A Batalha vai começar!</div>
+
+    <audio id="audio-ambience-1" loop></audio>
+    <audio id="audio-ambience-2" loop></audio>
+    <audio id="audio-hino"></audio>
+    <audio id="audio-goal" src="https://www.myinstants.com/media/sounds/gol-do-brasil-narrador.mp3"></audio>
+
+    <button onclick="document.getElementById('hud-janela-painel').style.display='flex'" style="position: absolute; top: 20px; left: 20px; z-index: 100000; background: #3498db; color: white; border: 2px solid #fff; padding: 10px 15px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);">⚙️ PAINEL</button>
+
+    <div id="hud-janela-painel" style="position: absolute; top: 70px; left: 20px; width: calc(100vw - 40px); max-width: 500px; height: 85vh; background: rgba(44, 62, 80, 0.95); border: 2px solid #3498db; border-radius: 10px; z-index: 100001; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.8);">
+        <div style="background: #2980b9; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: white;">
+            <span>⚙️ Controle Host</span>
+            <div style="display: flex; gap: 5px;">
+                <button onclick="window.open('painel.html?mode=batalha', '_blank'); document.getElementById('iframe-painel').src = 'painel.html?mode=batalha'; document.getElementById('hud-janela-painel').style.display='none';" style="background: #f39c12; border: none; color: white; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold;">↗️ Nova Aba</button>
+                <button onclick="document.getElementById('hud-janela-painel').style.display='none'" style="background: #e74c3c; border: none; color: white; padding: 5px 15px; cursor: pointer; border-radius: 5px; font-weight: bold;">X</button>
+            </div>
+        </div>
+        <iframe id="iframe-painel" src="painel.html?mode=batalha" sandbox="allow-scripts allow-same-origin allow-popups" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    <script>
+        // 🛡️ TRAVA RDM STUDIO
+        window.rdmUser = localStorage.getItem('rdm_user');
+        window.rdmPerfil = localStorage.getItem('rdm_perfil');
+
+        if (!window.rdmUser || !window.rdmPerfil) {
+            document.body.innerHTML = "<div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; background:#000; z-index:999999; position:relative;'><h1 style='color:#ef4444; text-shadow:0 0 20px #ef4444; font-family:Arial;'>ACESSO NEGADO</h1><p style='color:#ccc; font-size:20px; font-family:Arial;'>Você precisa estar logado na RDM Studio para jogar.</p></div>";
+            window.stop();
+        }
+    </script>
+    <script src="script_batalha.js"></script>
+</body>
+</html>

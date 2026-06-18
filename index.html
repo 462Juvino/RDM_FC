@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Batalha de Futebol</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="stadium-bg"></div>
+
+    <div id="audio-unlock-overlay" onclick="unlockAudio()">
+        <div class="unlock-content"><h1>CLIQUE AQUI</h1><p>Para libertar o áudio do estádio!</p></div>
+    </div>
+
+    <div id="goal-flash-overlay">GOLO!</div>
+
+    <div id="tournament-champion-overlay" style="display: none;">
+        <h1 class="tc-title">🏆 GRANDE CAMPEÃO 🏆</h1>
+        <img id="tc-crest" class="tc-crest" src="">
+        <h2 id="tc-name" class="tc-name">TIME</h2>
+        <div class="tc-subtitle">OS CRAQUES DA CAMPANHA:</div>
+        <div class="tc-helpers-marquee">
+            <div id="tc-helpers-track" class="tc-helpers-track"></div>
+        </div>
+    </div>
+
+    <div id="winner-overlay" style="display: none;">
+        <h1 class="winner-title">FIM DE JOGO</h1>
+        <div class="winner-flex">
+            <div class="winner-team-box">
+                <img id="winner-crest" class="winner-crest" src="">
+                <h2 id="winner-name" class="winner-name">VENCEU!</h2>
+            </div>
+            <div id="winner-scorer-box" class="winner-scorer-box" style="display: none;">
+                <h3>👑 ARTILHEIRO DA PARTIDA</h3>
+                <img id="ws-avatar" src="">
+                <h4 id="ws-name">Nome</h4>
+                <p><span id="ws-goals">0</span> GOLS</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="tournament-overlay">
+        <h1 id="tourney-title">Tabela do Campeonato</h1>
+        <div class="tourney-content">
+            <div class="table-section">
+                <table id="standings-table">
+                    <thead><tr><th>Pos</th><th>Time</th><th>Pts</th><th>V</th><th>E</th><th>D</th><th>GP</th><th>GC</th><th>SG</th></tr></thead>
+                    <tbody id="standings-body"></tbody>
+                </table>
+                <div id="bracket-container" style="display:none;"></div>
+
+                <div id="next-match-info" style="display: none;">
+                    Próxima Partida: <span id="nmi-a"></span> <span style="color:#f1c40f">VS</span> <span id="nmi-b"></span>
+                </div>
+            </div>
+
+            <div class="scorers-section">
+                <h2>👑 Artilheiros do Torneio</h2>
+                <div id="tourney-scorers-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-wrapper">
+        <div class="header-container">
+            <div style="position: relative;">
+                <div id="top-scorer-a" class="top-scorer-badge" style="display: none;">
+                    <img id="ts-avatar-a" src="">
+                    <span id="ts-name-a" class="ts-name"></span> <span id="ts-goals-a" class="ts-goals"></span>⚽
+                </div>
+                <img id="crestA" class="team-logo" src="esculdos/Flamengo.png">
+            </div>
+            <div class="timer-container"><div id="timer">00:00</div></div>
+            <div style="position: relative;">
+                <div id="top-scorer-b" class="top-scorer-badge" style="display: none;">
+                    <img id="ts-avatar-b" src="">
+                    <span id="ts-name-b" class="ts-name"></span> <span id="ts-goals-b" class="ts-goals"></span>⚽
+                </div>
+                <img id="crestB" class="team-logo" src="esculdos/Palmeiras.png">
+            </div>
+        </div>
+
+        <div class="scoreboard">
+            <div class="team" id="teamA-box">
+                <div class="team-content">
+                    <h2 id="nameA">Flamengo</h2>
+                    <div id="defense-badge-a" class="defense-badge" style="display: none;">🛡️ MURALHA</div>
+                    <div class="card-slots" id="cardsA-container"><div class="slot"></div><div class="slot"></div><div class="slot"></div></div>
+                </div>
+                <div class="score" id="scoreA">0</div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team" id="teamB-box">
+                <div class="score" id="scoreB">0</div>
+                <div class="team-content">
+                    <h2 id="nameB">Palmeiras</h2>
+                    <div id="defense-badge-b" class="defense-badge" style="display: none;">🛡️ MURALHA</div>
+                    <div class="card-slots" id="cardsB-container"><div class="slot"></div><div class="slot"></div><div class="slot"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="var-dispute-container" style="display: none;">
+            <div class="var-header">DISPUTA DO VAR - ENVIEM PRESENTES!</div>
+            <div class="var-bar-wrapper"><div id="var-bar-a" style="width: 50%;"></div><div id="var-bar-b" style="width: 50%;"></div></div>
+            <div class="var-labels"><span id="var-pts-a">0</span><span>VS</span><span id="var-pts-b">0</span></div>
+        </div>
+
+        <div class="narration-bar">
+            <div class="mic-icon">🎙️</div>
+            <div class="narration-text-container"><p id="narrative-text">Aguardando configurações...</p></div>
+        </div>
+    </div>
+
+    <audio id="audio-ambience-A" loop src="sounds/Flamengo torcida.mp3"></audio>
+    <audio id="audio-ambience-B" loop src="sounds/Palmeiras torcida.mp3"></audio>
+    <audio id="audio-hino-A" src="sounds/Flamengo Hino.mp3"></audio>
+    <audio id="audio-hino-B" src="sounds/Palmeiras Hino.mp3"></audio>
+    <audio id="audio-goal" src="https://www.myinstants.com/media/sounds/gol-do-brasil-narrador.mp3"></audio>
+    <audio id="audio-virada" src="sounds/proximo_virada.mp3"></audio>
+    <audio id="audio-acredito" src="sounds/eu_acredito.mp3"></audio>
+
+    <button onclick="document.getElementById('hud-janela-painel').style.display='flex'" style="position: absolute; top: 20px; left: 20px; z-index: 100000; background: #3498db; color: white; border: 2px solid #fff; padding: 10px 15px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);">⚙️ PAINEL</button>
+
+    <div id="hud-janela-painel" style="position: absolute; top: 70px; left: 20px; width: calc(100vw - 40px); max-width: 500px; height: 85vh; background: rgba(44, 62, 80, 0.95); border: 2px solid #3498db; border-radius: 10px; z-index: 100001; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.8);">
+        <div style="background: #2980b9; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: white;">
+            <span>⚙️ Controle Host</span>
+            <div style="display: flex; gap: 5px;">
+                <button onclick="window.open('painel.html?mode=classic', '_blank'); document.getElementById('iframe-painel').src = 'painel.html?mode=classic'; document.getElementById('hud-janela-painel').style.display='none';" style="background: #f39c12; border: none; color: white; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold;">↗️ Nova Aba</button>
+                <button onclick="document.getElementById('hud-janela-painel').style.display='none'" style="background: #e74c3c; border: none; color: white; padding: 5px 15px; cursor: pointer; border-radius: 5px; font-weight: bold;">X</button>
+            </div>
+        </div>
+        <iframe id="iframe-painel" src="painel.html?mode=classic" sandbox="allow-scripts allow-same-origin allow-popups" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+
+    <script>
+        // 🛡️ TRAVA RDM STUDIO
+        window.rdmUser = localStorage.getItem('rdm_user');
+        window.rdmPerfil = localStorage.getItem('rdm_perfil');
+
+        if (!window.rdmUser || !window.rdmPerfil) {
+            document.body.innerHTML = "<div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; background:#000; z-index:999999; position:relative;'><h1 style='color:#ef4444; text-shadow:0 0 20px #ef4444; font-family:Arial;'>ACESSO NEGADO</h1><p style='color:#ccc; font-size:20px; font-family:Arial;'>Você precisa estar logado na RDM Studio para jogar.</p></div>";
+            window.stop();
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
