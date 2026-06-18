@@ -122,13 +122,13 @@
     <audio id="audio-virada" src="sounds/proximo_virada.mp3"></audio>
     <audio id="audio-acredito" src="sounds/eu_acredito.mp3"></audio>
 
-    <button onclick="document.getElementById('hud-janela-painel').style.display='flex'; document.querySelector('#hud-janela-painel iframe').contentWindow.postMessage({command: 'DIRECT_FORCE_MODE', mode: 'classic'}, '*');" style="position: absolute; top: 20px; left: 20px; z-index: 100000; background: #3498db; color: white; border: 2px solid #fff; padding: 10px 15px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);">⚙️ PAINEL</button>
+    <button onclick="document.getElementById('hud-janela-painel').style.display='flex'" style="position: absolute; top: 20px; left: 20px; z-index: 100000; background: #3498db; color: white; border: 2px solid #fff; padding: 10px 15px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);">⚙️ PAINEL</button>
 
     <div id="hud-janela-painel" style="position: absolute; top: 70px; left: 20px; width: calc(100vw - 40px); max-width: 500px; height: 85vh; background: rgba(44, 62, 80, 0.95); border: 2px solid #3498db; border-radius: 10px; z-index: 100001; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.8);">
         <div style="background: #2980b9; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; color: white;">
             <span>⚙️ Controle Host</span>
             <div style="display: flex; gap: 5px;">
-                <button onclick="window.open('painel.html?mode=classic', '_blank'); document.getElementById('iframe-painel').src = 'painel.html?mode=classic'; document.getElementById('hud-janela-painel').style.display='none';" style="background: #f39c12; border: none; color: white; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold;">↗️ Nova Aba</button>
+                <button onclick="window.open('painel.html?mode=classic', '_blank'); document.getElementById('hud-janela-painel').style.display='none';" style="background: #f39c12; border: none; color: white; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold;">↗️ Nova Aba</button>
                 <button onclick="document.getElementById('hud-janela-painel').style.display='none'" style="background: #e74c3c; border: none; color: white; padding: 5px 15px; cursor: pointer; border-radius: 5px; font-weight: bold;">X</button>
             </div>
         </div>
