@@ -104,10 +104,10 @@
             <span>⚙️ Controle Host</span>
             <div style="display: flex; gap: 5px;">
                 <button onclick="window.open('painel.html?mode=batalha', '_blank'); document.getElementById('iframe-painel').src = 'painel.html?mode=batalha'; document.getElementById('hud-janela-painel').style.display='none';" style="background: #f39c12; border: none; color: white; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold;">↗️ Nova Aba</button>
-                <button onclick="document.getElementById('hud-janela-painel').style.display='none'" style="background: #e74c3c; border: none; color: white; padding: 5px 15px; cursor: pointer; border-radius: 5px; font-weight: bold;">X</button>
+                <button onclick="document.getElementById('hud-janela-painel').style.display='flex'; document.querySelector('#hud-janela-painel iframe').contentWindow.postMessage({command: 'DIRECT_FORCE_MODE', mode: 'batalha'}, '*');" style="position: absolute; top: 20px; left: 20px; z-index: 100000; background: #3498db; color: white; border: 2px solid #fff; padding: 10px 15px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);">⚙️ PAINEL</button>
             </div>
         </div>
-        <iframe id="iframe-painel" src="painel.html?mode=batalha" sandbox="allow-scripts allow-same-origin allow-popups" style="width: 100%; height: 100%; border: none;"></iframe>
+        <iframe src="painel.html?mode=batalha" onload="this.contentWindow.postMessage({command: 'DIRECT_FORCE_MODE', mode: 'batalha'}, '*');" style="width: 100%; height: 100%; border: none;"></iframe>
     </div>
     <script>
         // 🛡️ TRAVA RDM STUDIO

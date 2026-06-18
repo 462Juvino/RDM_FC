@@ -452,6 +452,13 @@
         document.getElementById('custom-team-url').value = '';
         updatePreview('a'); updatePreview('b');
     }
+
+    // 🛡️ LINHA DIRETA: Ouve ordens exclusivas da Arena pai (Ignora abas fantasmas)
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.command === 'DIRECT_FORCE_MODE') {
+            forceUIMode(event.data.mode);
+        }
+    });
 </script>
 </body>
 </html>
