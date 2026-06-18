@@ -191,7 +191,8 @@
 
     // 🛡️ VALIDAÇÃO SAAS (RDM STUDIO)
     function verificarStatusRDM() {
-        let user = localStorage.getItem('rdm_user');
+        // Puxa primeiro a versão com PONTO, se não achar, usa a antiga por segurança
+        let user = localStorage.getItem('rdm_user_tiktok') || localStorage.getItem('rdm_user');
         let perfil = localStorage.getItem('rdm_perfil');
         let msgEl = document.getElementById('licenseMsg');
         let hwidEl = document.getElementById('hwid-display');
